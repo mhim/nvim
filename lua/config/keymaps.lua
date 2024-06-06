@@ -22,6 +22,12 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- resize windows
+keymap.set("n", "<C-S-h>", "<C-W><", { desc = "Reduce width of window" })
+keymap.set("n", "<C-S-l>", "<C-W>>", { desc = "Expand width of window" })
+keymap.set("n", "<C-S-k>", "<C-W>-", { desc = "Reduce height of window" })
+keymap.set("n", "<C-S-j>", "<C-W>+", { desc = "Expand height of window" })
+
 -- indent
 keymap.set("v", ">", ">gv", { desc = "increase indent with certain block" })
 keymap.set("v", "<", "<gv", { desc = "decrease indent with certain block" })
