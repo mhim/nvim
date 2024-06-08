@@ -5,15 +5,15 @@ local opt = vim.opt
 -- visual settings
 opt.relativenumber = true
 opt.number = true
+opt.cursorline = true
 
 -- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.softtabstop = 2 -- 2 spaces for tab key
+opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
+opt.softtabstop = 4 -- 4 spaces for tab key
+opt.shiftwidth = 4 -- 4 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.smartindent = true -- auto indentation defend on file format
 opt.autoindent = true -- copy indent from current line when starting new one
-
 opt.wrap = false -- turon off line feed with long statement
 
 -- search settings
@@ -21,11 +21,9 @@ opt.incsearch = true -- find matching word of step when input string
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
-opt.cursorline = true
-
 -- turn on termguicolors for tokyonight colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
-opt.termguicolors = true
+opt.termguicolors = true -- enable true color support
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
@@ -43,8 +41,9 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 -- etc
+opt.scrolloff = 8 -- minimum number of lines to keep above and below the cursor
+opt.sidescrolloff = 8 -- minimum number of columns to keep above and below the cursor
 -- opt.encoding = "UTF-8"
-opt.showcmd = true
-opt.cmdheight = 1
-opt.scrolloff = 10
+-- opt.showcmd = true
+-- opt.cmdheight = 1
 -- opt.mouse:append("a")

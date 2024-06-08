@@ -18,9 +18,9 @@ return {
     })
     local keymap = vim.keymap -- for conciseness
 
-    keymap.set("n", "<S-e>", "<cmd>Neotree toggle<CR>", { desc = "Toggle Neotree explorer" })
-    keymap.set("n", "<S-b>", "<cmd>Neotree buffers<CR>", { desc = "Move buffers tab in Neotree" })
-    -- keymap.set("n", "<leader>en", "<cmd>Neotree toggle<CR>", { desc = "Toggle Neotree explorer" })
-    -- keymap.set("n", "<leader>eb", "<cmd>Neotree buffers<CR>", { desc = "Move buffers tab in Neotree" })
+    keymap.set("n", "<leader>e", "<cmd>Neotree toggle left<CR>", { desc = "Toggle Neotree explorer" })
+    keymap.set("n", "<C-e>", "<cmd>Neotree float toggle filesystem<CR>", { desc = "Float Neotree explorer" })
+    keymap.set("n", "<C-b>", "<cmd>Neotree float toggle buffers<CR>", { desc = "Float Neotree buffers" })
+    keymap.set("n", "<C-g>", "<cmd>Neotree float toggle git_status<CR>", { desc = "Float Neotree git" })
   end,
 }
