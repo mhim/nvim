@@ -26,6 +26,8 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
     { import = "plugins.lsp" },
+    { import = "plugins.theme.tokyonight" },
+    -- { import = "plugins.theme.catppuccin" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
