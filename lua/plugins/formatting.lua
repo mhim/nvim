@@ -6,6 +6,9 @@ return {
 
     conform.setup({
       formatters_by_ft = {
+        c = { "clangd" },
+        lua = { "stylua" },
+        python = { "isort", "black" },
         javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
@@ -17,8 +20,6 @@ return {
         markdown = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
-        lua = { "stylua" },
-        python = { "isort", "black" },
       },
       -- format_on_save = {
       --   lsp_fallback = true,
