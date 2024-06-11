@@ -100,11 +100,6 @@ return {
           end,
         })
       end,
-       ["tsserver"] = function()
-        -- configure graphql language server
-        lspconfig["tsserver"].setup({
-        })
-      end,
       ["graphql"] = function()
         -- configure graphql language server
         lspconfig["graphql"].setup({
