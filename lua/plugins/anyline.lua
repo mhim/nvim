@@ -26,7 +26,7 @@ return {
       priority = 19, -- extmark priority
       priority_context = 20,
       ft_ignore = {
-        "Neo-Tree",
+        "Neotree",
         "NvimTree",
         "TelescopePrompt",
         "alpha",
