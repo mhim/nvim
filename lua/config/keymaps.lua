@@ -26,6 +26,7 @@ keymap.set("n", "<S-TAB>", "<cmd>bp<cr>", { desc = "Prev Buffer" })
 keymap.set("n", "<TAB>", "<cmd>bn<cr>", { desc = "Next Buffer" })
 keymap.set("n", "<leader>ba", "<Cmd>ba<CR>", { desc = "Show all Buffers" })
 keymap.set("n", "<leader>bx", "<Cmd>bd<CR>", { desc = "Delete current Buffers" })
+keymap.set("n", "<C-x>", "<cmd>bdelete<CR>", { desc = "Delete current Buffers" })
 
   -- resize windows
 keymap.set("n", "<C-S-h>", "<C-W><", { desc = "Reduce width of window" })

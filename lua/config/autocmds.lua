@@ -1,4 +1,5 @@
 local api = vim.api
+local cmd = vim.cmd
 local opt = vim.opt
 local fn = vim.fn
 
@@ -23,7 +24,21 @@ api.nvim_create_autocmd("BufReadPost", {
   pattern = "*",
   callback = function()
     if fn.line("'\"") > 0 and fn.line("'\"") <= fn.line("$") then
-      vim.cmd("normal! g'\"")
+      cmd("normal! g'\"")
     end
   end,
 }) -- return to last edit position when opening files
+
+api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  callback = function()
+    cmd("mkview")
+  end,
+}) -- save fold status when saved
+
+api.nvim_create_autocmd({ "BufRead", "VimEnter" }, {
+  pattern = "*",
+  callback = function()
+    cmd("silent! loadview")
+  end,
+}) -- load fold status when read
