@@ -46,5 +46,9 @@ return {
         return { "treesitter", "indent" }
       end,
     })
+    vim.cmd([[
+    highlight Folded guibg=#282c34 guifg=#abb2bf
+    highlight FoldColumn guibg=#1c1f24 guifg=#c678dd
+    ]])
   end,
 }

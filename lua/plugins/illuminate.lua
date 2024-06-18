@@ -58,5 +58,9 @@ return {
       -- case_insensitive_regex: sets regex case sensitivity
       case_insensitive_regex = false,
     })
+    -- Customize highlight groups for vim-illuminate
+    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#333333", underline = false })
+    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#333333", underline = false })
+    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#333333", underline = false })
   end,
 }
