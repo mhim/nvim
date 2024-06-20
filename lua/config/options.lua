@@ -6,6 +6,8 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 opt.cursorline = true
+opt.scrolloff = 8 -- minimum number of lines to keep above and below the cursor
+opt.sidescrolloff = 8 -- minimum number of columns to keep above and below the cursor
 
 -- tabs & indentation
 opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
@@ -27,12 +29,6 @@ opt.termguicolors = true -- enable true color support
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
-
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
@@ -40,9 +36,17 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+-- backspace
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+
+-- clipboard
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+--persistent undo
+opt.undofile = true
+opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
+
 -- etc
-opt.scrolloff = 8 -- minimum number of lines to keep above and below the cursor
-opt.sidescrolloff = 8 -- minimum number of columns to keep above and below the cursor
 -- opt.encoding = "UTF-8"
 -- opt.showcmd = true
 -- opt.cmdheight = 1
