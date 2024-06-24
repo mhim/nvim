@@ -7,8 +7,12 @@ return {
     conform.setup({
       formatters_by_ft = {
         c = { "clang-format" },
+        cpp = { "clang-format" },
         lua = { "stylua" },
         python = { "isort", "black" },
+        sh = { "shfmt" },
+        zsh = { "shfmt" },
+        bash = { "shfmt" },
         javascript = { "prettier" },
         -- typescript = { "prettier" },
         -- javascriptreact = { "prettier" },
@@ -20,6 +24,9 @@ return {
         markdown = { "prettier" },
         -- graphql = { "prettier" },
         -- liquid = { "prettier" },
+        -- Use the "_" filetype to run formatters on filetypes that don't
+        -- have other formatters configured.
+        ["_"] = { "trim_whitespace" },
       },
       -- format_on_save = {
       --   lsp_fallback = true,
