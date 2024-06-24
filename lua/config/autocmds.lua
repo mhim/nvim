@@ -12,7 +12,7 @@ api.nvim_create_autocmd("BufReadPost", {
   end,
 }) -- return to last edit position when opening files
 
-api.nvim_create_autocmd("VimLeave", {
+api.nvim_create_autocmd({ "BufWrite", "VimLeave" }, {
   pattern = "*",
   callback = function()
     cmd("mkview")
