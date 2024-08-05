@@ -1,7 +1,8 @@
 ---@diagnostic disable: missing-fields
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
+  -- event = { "BufReadPre", "BufNewFile" },
+  event = "VeryLazy",
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
@@ -23,6 +24,9 @@ return {
       },
       -- ensure these language parsers are installed
       ensure_installed = {
+        "c",
+        "cpp",
+        "lua",
         "json",
         "javascript",
         "yaml",
@@ -35,7 +39,6 @@ return {
         "dockerfile",
         "gitignore",
         "vimdoc",
-        "c",
       },
       incremental_selection = {
         enable = true,

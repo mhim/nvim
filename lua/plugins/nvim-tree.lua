@@ -35,6 +35,7 @@ return {
           window_picker = {
             enable = false,
           },
+          quit_on_open = true, -- closing explorer when file was selected
         },
       },
       filters = {

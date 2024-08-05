@@ -1,7 +1,8 @@
 return {
   "huy-hng/anyline.nvim",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  event = "VeryLazy",
+  -- event = "VeryLazy",
+  Lazy = false,
   config = function()
     local anyline = require("anyline")
 
