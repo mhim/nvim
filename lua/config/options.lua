@@ -51,3 +51,4 @@ opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
 -- opt.showcmd = true
 -- opt.cmdheight = 1
 -- opt.mouse:append("a")
+opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

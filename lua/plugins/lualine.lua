@@ -7,7 +7,8 @@ return {
 
     -- Function to get LSP status
     local lsp_status = function()
-      local clients = vim.lsp.get_active_clients()
+      -- local clients = vim.lsp.get_active_clients()
+      local clients = vim.lsp.lsp.get_clitens()
       if next(clients) == nil then
         return "No LSP"
       end

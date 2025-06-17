@@ -70,6 +70,7 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
+    --[[
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -132,5 +133,83 @@ return {
         })
       end,
     })
+  end,
+}
+    ]]
+
+    -- Change the Diagnostic symbols in the sign column (gutter)
+    -- (not in youtube nvim video)
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = signs.Error,
+          [vim.diagnostic.severity.WARN]  = signs.Warn,
+          [vim.diagnostic.severity.HINT]  = signs.Hint,
+          [vim.diagnostic.severity.INFO]  = signs.Info,
+        },
+      },
+      linehl = {
+        [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+        [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
+        [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint",
+        [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
+      },
+    })
+
+    -- mason-lspconfig 최신 방식
+    mason_lspconfig.setup({
+      ensure_installed = { "lua_ls", "svelte", "graphql", "emmet_ls" },
+    })
+
+    local custom_servers = {
+      svelte = function()
+        lspconfig["svelte"].setup({
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            vim.api.nvim_create_autocmd("BufWritePost", {
+              pattern = { "*.js", "*.ts" },
+              callback = function(ctx)
+                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+              end,
+            })
+          end,
+        })
+      end,
+      graphql = function()
+        lspconfig["graphql"].setup({
+          capabilities = capabilities,
+          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+        })
+      end,
+      emmet_ls = function()
+        lspconfig["emmet_ls"].setup({
+          capabilities = capabilities,
+          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+        })
+      end,
+      lua_ls = function()
+        lspconfig["lua_ls"].setup({
+          capabilities = capabilities,
+          settings = {
+            Lua = {
+              diagnostics = { globals = { "vim" } },
+              completion = { callSnippet = "Replace" },
+            },
+          },
+        })
+      end,
+    }
+
+    -- mason-lspconfig에서 설치된 서버 목록을 받아와서 직접 setup
+    for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
+      if custom_servers[server] then
+        custom_servers[server]()
+      else
+        lspconfig[server].setup({
+          capabilities = capabilities,
+        })
+      end
+    end
   end,
 }
