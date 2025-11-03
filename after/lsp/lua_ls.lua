@@ -1,3 +1,3 @@
 return {
-	root_markers = { ".luarc.json", ".luarc.jsonc" },
+	root_markers = { ".git", "lua", ".luarc.json", ".luarc.jsonc" },
 }
