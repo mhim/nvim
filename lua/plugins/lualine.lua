@@ -8,7 +8,7 @@ return {
     -- Function to get LSP status
     local lsp_status = function()
       -- local clients = vim.lsp.get_active_clients()
-      local clients = vim.lsp.lsp.get_clitens()
+      local clients = vim.lsp.get_clients({buffer = 0})
       if next(clients) == nil then
         return "No LSP"
       end
@@ -20,6 +20,12 @@ return {
       end
       return "No LSP"
     end
+    --   local client_names = {}
+    --   for _, client in pairs(clients) do
+    --     table.insert(client_names, client.name)
+    --   end
+    --   return table.concat(client_names, ", ")
+    -- end
 
     -- Function to get total lines
     local line_status = function()
@@ -40,43 +46,44 @@ return {
       inactive_bg = "#2c3043",
     }
 
-    local my_lualine_theme = {
-      normal = {
-        a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      insert = {
-        a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      command = {
-        a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      replace = {
-        a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
-      },
-    }
+    -- local my_lualine_theme = {
+    --   normal = {
+    --     a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+    --     b = { bg = colors.bg, fg = colors.fg },
+    --     c = { bg = colors.bg, fg = colors.fg },
+    --   },
+    --   insert = {
+    --     a = { bg = colors.green, fg = colors.bg, gui = "bold" },
+    --     b = { bg = colors.bg, fg = colors.fg },
+    --     c = { bg = colors.bg, fg = colors.fg },
+    --   },
+    --   visual = {
+    --     a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
+    --     b = { bg = colors.bg, fg = colors.fg },
+    --     c = { bg = colors.bg, fg = colors.fg },
+    --   },
+    --   command = {
+    --     a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
+    --     b = { bg = colors.bg, fg = colors.fg },
+    --     c = { bg = colors.bg, fg = colors.fg },
+    --   },
+    --   replace = {
+    --     a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+    --     b = { bg = colors.bg, fg = colors.fg },
+    --     c = { bg = colors.bg, fg = colors.fg },
+    --   },
+    --   inactive = {
+    --     a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
+    --     b = { bg = colors.inactive_bg, fg = colors.semilightgray },
+    --     c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+    --   },
+    -- }
 
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        theme = my_lualine_theme,
+        -- theme = my_lualine_theme,
+        theme = 'tokyonight',
         section_separators = { "", "" },
         component_separators = { "", "" },
       },
@@ -85,7 +92,7 @@ return {
         lualine_x = {
           {
             lsp_status,
-            icon = " LSP:", color = { fg = "#d599ff" , gui = 'bold' }
+            icon = "⚙️ LSP: ", color = { fg = "#d599ff" , gui = 'bold' },
           },
           {
             lazy_status.updates,
