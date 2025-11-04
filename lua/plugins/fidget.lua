@@ -25,12 +25,12 @@ return {
     --       function(group) return tostring(group) end,
     --   },
     -- },
-    -- notification = {
-    --   window = {
-    --     winblend = 0, -- 투명도 제거 (테스트용으로 명확히 보이게)
+    notification = {
+      window = {
+        winblend = 0, -- 투명도 제거 (테스트용으로 명확히 보이게)
     --     border = "rounded",
-    --   },
-    -- },
+      },
+    },
     -- Options related to integrating with other plugins
     -- integration = {
     --   ["nvim-tree"] = { enable = false, }, -- Integrate with nvim-tree/nvim-tree.lua (if installed)

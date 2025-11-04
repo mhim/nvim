@@ -89,6 +89,7 @@ return {
       },
       sections = {
         lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+        lualine_c = { { "filename", path = 1 } },
         lualine_x = {
           {
             lsp_status,
