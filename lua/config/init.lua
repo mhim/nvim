@@ -28,7 +28,7 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "lsp" },
     { import = "theme.tokyonight" },
-    -- { import = "theme.tcatppucci" },
+    -- { import = "theme.catppuccin" },
     -- { import = "theme.vscode" },
   },
   -- colorscheme that will be used when installing plugins.
