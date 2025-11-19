@@ -64,11 +64,11 @@ api.nvim_create_autocmd("TextYankPost", {
 api.nvim_create_autocmd({ "BufWrite", "VimLeave" }, {
   pattern = "*",
   callback = function()
-    -- local filename = vim.fn.expand("%:p")
-    -- if filename ~= "" and filename ~= nil and vim.fn.buflisted(0) == 1 then
+    local filename = vim.fn.expand("%:p")
+    if filename ~= "" and filename ~= nil and vim.fn.buflisted(0) == 1 then
       -- pcall(cmd, "mkview")
       cmd("mkview")
-    -- end
+    end
   end,
 })
 

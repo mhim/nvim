@@ -4,8 +4,8 @@ local orig = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts = opts or {}
 	opts.border = opts.border or "rounded"
-	opts.max_width = opts.max_width or 80
-	opts.max_height = opts.max_height or 24
+	-- opts.max_width = opts.max_width or 80
+	-- opts.max_height = opts.max_height or 24
 	opts.wrap = opts.wrap ~= false
 	return orig(contents, syntax, opts, ...)
 end
