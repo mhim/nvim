@@ -8,7 +8,12 @@ return {
 	dependencies = { "windwp/nvim-ts-autotag" },
 	config = function()
 		-- configure treesitter
-		require("nvim-treesitter.configs").setup({
+    local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+    if not status_ok then
+        return
+    end
+		-- require("nvim-treesitter.configs").setup({
+    configs.setup({
 			sync_install = false,
       auto_install = true,
 			ignore_install = {},

@@ -33,6 +33,7 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"ruff", -- python formatter
+        "bashls",
 				"eslint_d",
 			},
 		},
