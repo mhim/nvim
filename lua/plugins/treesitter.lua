@@ -1,32 +1,23 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	-- event = "VeryLazy",
-	-- event = { "BufReadPre", "BufNewFile" },
+	tag = "v0.9.3",  -- last stable release with pre-compiled binary downloads
 	event = { "BufReadPost", "BufNewFile" },
-	lazy = false,
+	-- lazy = false,
 	dependencies = { "windwp/nvim-ts-autotag" },
 	config = function()
-		-- configure treesitter
-    local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-    if not status_ok then
-        return
-    end
-		-- require("nvim-treesitter.configs").setup({
-    configs.setup({
+		local configs = require("nvim-treesitter.configs")
+		configs.setup({
 			sync_install = false,
-      auto_install = true,
+			auto_install = true,
 			ignore_install = {},
 			modules = {},
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
 			},
-			-- enable indentation
 			indent = { enable = true },
-			-- enable autotagging (w/ nvim-ts-autotag plugin)
 			autotag = { enable = true },
-			-- ensure these language parsers are installed
 			ensure_installed = {
 				"c",
 				"cpp",
@@ -54,7 +45,7 @@ return {
 				},
 			},
 		})
-    -- use bash parser for zsh files
+		-- Register bash parser for zsh since no dedicated zsh parser exists
 		vim.treesitter.language.register("bash", "zsh")
 	end,
 }
