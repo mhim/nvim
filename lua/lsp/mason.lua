@@ -22,6 +22,8 @@ return {
 				"clangd",
 				"lua_ls",
 				"ruff",
+        "bashls",
+				"stylua",
 			},
 		},
 	},
@@ -31,9 +33,7 @@ return {
 			ensure_installed = {
         "clang-format",
 				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"ruff", -- python formatter
-        "bashls",
+        "shfmt",
 				"eslint_d",
 			},
 		},
