@@ -1,8 +1,6 @@
 local fn = vim.fn
 local api = vim.api
 local cmd = vim.cmd
-local opt = vim.opt
--- cmd("set completeopt+=noselect")
 
 -- return to last edit position when opening files
 api.nvim_create_autocmd("BufReadPost", {
@@ -29,7 +27,7 @@ api.nvim_create_autocmd({ "BufWrite", "VimLeave" }, {
     local filename = vim.fn.expand("%:p")
     if filename ~= "" and filename ~= nil and vim.fn.buflisted(0) == 1 then
       -- pcall(cmd, "mkview")
-      cmd("mkview")
+      cmd("silent! mkview")
     end
   end,
 })
@@ -46,8 +44,8 @@ api.nvim_create_autocmd({ "BufRead", "VimEnter" }, {
 api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "*.js", "*.html", "*.css", "*.lua" },
   callback = function()
-    opt.tabstop = 2
-    opt.softtabstop = 2
-    opt.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
   end,
 })

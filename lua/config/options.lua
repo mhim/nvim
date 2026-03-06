@@ -1,13 +1,13 @@
 vim.cmd("let g:netrw_liststyle = 3")
 local opt = vim.opt
 
--- bsdic settings
+-- basic settings
 opt.number = true -- line numbers
 opt.relativenumber = true -- relative line numbers
 opt.cursorline = true -- highlight current line
 opt.scrolloff = 10 -- keep 10 lines above/below cursor
 opt.sidescrolloff = 8 -- keep 8 columns left/right of cursor
-opt.winborder = 'rounded' -- default border for all floatting window
+-- opt.winborder = 'rounded' -- default border for all floatting window
 opt.wrap = false -- don't wrap lines
 opt.cmdheight = 1 -- command line height
 -- opt.spelllang = { "en", "ko" } -- set language for spellchecking
@@ -26,7 +26,7 @@ opt.grepformat = "%f:%l:%c:%m" -- filename, line number, column, content
 opt.incsearch = true -- find matching word of step when input string
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-opt.hlsearch = true -- highlight search resukts
+opt.hlsearch = true -- highlight search results
 
 -- visual settings
 opt.termguicolors = true -- enable true color support
