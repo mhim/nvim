@@ -9,7 +9,7 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("i", "jk", "<esc>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
-keymap.set('n', "<C-a>", 'ggVG', { noremap = true, silent = true, desc = "set block all" })
+keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "set block all" })
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
@@ -50,5 +50,5 @@ keymap.set("v", "<", "<gv", { desc = "Decrease indent with certain block" })
 -- termnial
 keymap.set("n", "<leader>xv", "<cmd>vert 80sp | term<cr>", { desc = "Split terminal vertically" })
 keymap.set("n", "<leader>xh", "<cmd>bo 15sp | term<cr>", { desc = "Split terminal horizontally" })
-keymap.set('n', '<leader>xt', [[:Flterm<cr>]], { noremap = true, silent = true, desc = "Floatting terminal" })
+keymap.set("n", "<leader>xt", [[:Flterm<cr>]], { noremap = true, silent = true, desc = "Floatting terminal" })
 keymap.set("t", "<esc>", [[<C-\><C-n>]], { noremap = true, desc = "Exit from terminal mode" })
