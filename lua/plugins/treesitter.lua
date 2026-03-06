@@ -71,20 +71,21 @@ return {
 			"vimdoc",
 		}
 
-		-- v1.x API: `setup` is minimal. We manually trigger installation of missing parsers.
-		require("nvim-treesitter").setup({
-			highlight = {
-				enable = true,
-				-- Disable slow treesitter highlight for large files
-				disable = function(lang, buf)
-					local max_filesize = 100 * 1024 -- 100 KB
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					if ok and stats and stats.size > max_filesize then
-						return true
-					end
-				end,
-			},
-			-- install_dir = ..., -- only field supported in v1.x setup
+		-- v1.x API: setup() only accepts install_dir. highlight/indent/etc are NOT supported.
+		-- Treesitter highlighting is handled by Neovim's builtin vim.treesitter.start().
+		require("nvim-treesitter").setup({})
+
+		-- Disable treesitter for large files to prevent performance issues.
+		-- This replaces the v0.9 highlight.disable callback which no longer works in v1.x.
+		vim.api.nvim_create_autocmd("BufReadPost", {
+			group = vim.api.nvim_create_augroup("TreesitterLargeFileGuard", { clear = true }),
+			callback = function(args)
+				local max_filesize = 100 * 1024 -- 100 KB
+				local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
+				if ok and stats and stats.size > max_filesize then
+					vim.treesitter.stop(args.buf)
+				end
+			end,
 		})
 
 		-- Manually install defined parsers if they are missing.

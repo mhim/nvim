@@ -12,7 +12,7 @@ return {
       if next(clients) == nil then
         return "No LSP"
       end
-      local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+      local buf_ft = vim.bo[0].filetype
       for _, client in ipairs(clients) do
         if client.config.filetypes and vim.fn.index(client.config.filetypes, buf_ft) ~= -1 then
           return client.name

@@ -46,9 +46,14 @@ return {
         return { "treesitter", "indent" }
       end,
     })
+    -- vim.cmd([[
+    -- highlight Folded guibg=#282c34 guifg=#abb2bf
+    -- highlight FoldColumn guibg=#1c1f24 guifg=#c678dd
+    -- ]])
+    -- for tokyonight theme
     vim.cmd([[
-    highlight Folded guibg=#282c34 guifg=#abb2bf
-    highlight FoldColumn guibg=#1c1f24 guifg=#c678dd
+      highlight Folded guibg=#143652 guifg=#627E97
+      highlight FoldColumn guibg=#011423 guifg=#bb9af7
     ]])
   end,
 }
