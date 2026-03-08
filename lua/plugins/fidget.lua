@@ -27,7 +27,7 @@ return {
     -- },
     notification = {
       window = {
-        winblend = 0, -- 투명도 제거 (테스트용으로 명확히 보이게)
+        winblend = 0, -- Remove transparency for clear visual display
     --     border = "rounded",
       },
     },

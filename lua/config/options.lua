@@ -32,7 +32,7 @@ opt.hlsearch = true -- highlight search results
 opt.termguicolors = true -- enable true color support
 -- opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-opt.colorcolumn = "0" -- Show column at 0 characters
+opt.colorcolumn = "" -- Show column at 0 characters
 opt.showmatch = true -- highlight matching brackets
 -- opt.matchtime = 2 -- how long to show matching bracket
 opt.completeopt = "menuone,noinsert,noselect" -- completion options
@@ -52,7 +52,8 @@ opt.backup = false -- create backup files
 opt.writebackup = false -- backup before overwriting
 opt.swapfile = false --create swap files
 opt.undofile = true -- persistent undo
-opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
+-- opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
+opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 -- opt.updatetime = 300 -- time in ms to trigger CursorHold
 -- opt.timeoutlen = 500 -- time in ms to wait for mapped sequence
 -- opt.ttimeoutlen = 0 -- no wait for key code sequences
@@ -75,7 +76,6 @@ opt.path:append("**") -- search into subfolders with `gf`
 opt.selection = "inclusive" -- use inclusive selection
 opt.mouse = "a" -- enable mouse support
 opt.clipboard:append("unnamedplus") -- use system clipboard
-opt.modifiable = true -- allow editing buffers
 opt.encoding = "UTF-8" -- use UTF-8 encoding
 opt.wildmenu = true -- enable command-line completion menu
 opt.wildmode = "longest:full,full" -- completion mode for command-line

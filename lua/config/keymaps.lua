@@ -30,8 +30,8 @@ keymap.set("n", "<C-S-j>", "<C-W>+", { desc = "Expand height of window" })
 -- Center screen when jumping
 keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
-keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
-keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
+keymap.set("n", "<C-f>", "<C-d>zz", { desc = "Half page down (centered)" })
+keymap.set("n", "<C-b>", "<C-u>zz", { desc = "Half page up (centered)" })
 
 -- increment/decrement numbers e.g.) S + V(G) :select block then <g><C-a> Increase gradually
 keymap.set("n", "<S-=>", "<C-a>", { desc = "Increment number" })

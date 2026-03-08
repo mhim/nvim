@@ -12,7 +12,7 @@ end
 -- Per-buffer behavior on LSP attach (keymaps, auto-format, completion)
 -- See :help LspAttach for the recommended pattern
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
   callback = function(ev)
     local keymap = vim.keymap.set
     local lspbuf = vim.lsp.buf
@@ -37,8 +37,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("n", "gt", lspbuf.type_definition, addopt("Go to definition of type"))
     keymap("n", "gs", lspbuf.signature_help, addopt("Display signature_help"))
     keymap({ "n", "v" }, "<leader>ca", lspbuf.code_action, addopt("Show available code action"))
-		keymap("n", "[d", function() diag.jump({ count = -1, float = true }) end, addopt("Jump to previous diagnostic"))
-		keymap("n", "]d", function() diag.jump({ count = 1, float = true }) end, addopt("Jump to next diagnostic"))
+    keymap("n", "[d", function() diag.jump({ count = -1, float = true }) end, addopt("Jump to previous diagnostic"))
+    keymap("n", "]d", function() diag.jump({ count = 1, float = true }) end, addopt("Jump to next diagnostic"))
     -- keymap({ 'n', 'x' }, '<leader>mp', function() lspbuf.format({ async = true }) end, addopt("formatting"))
   end,
 })
