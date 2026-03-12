@@ -22,7 +22,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     main = "ibl",
     opts = {
-      indent = { char = "▏" },
+      indent = { char = "│" },
       scope = { enabled = false },
       exclude = { filetypes = exclude_ft },
     },
@@ -45,7 +45,7 @@ return {
     end,
     opts = function()
       return {
-        symbol = "▏",
+        symbol = "│",
         draw = {
           delay = 50,
           animation = require("mini.indentscope").gen_animation.quadratic({

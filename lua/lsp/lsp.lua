@@ -11,13 +11,8 @@ return {
       },
     },
     config = function()
-      -- import cmp-nvim-lsp plugin
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-      -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
-
-      -- Setup global capabilities for servers that use vim.lsp.start/enable
       vim.lsp.config("*", {
         capabilities = capabilities,
       })
