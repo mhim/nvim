@@ -14,34 +14,34 @@ return {
       end,
     })
 
-    -- v0.9 had a "configs" module (plural) which is now gone.
-    package.preload["nvim-treesitter.configs"] = function()
-      return {
-				is_enabled = function(module_name, _)
-          return module_name == "highlight"
-        end,
-        -- Add other commonly used v0.9 functions if necessary
-        get_module = function(_)
-          return { enable = true }
-        end,
-        ft_to_lang = function(ft)
-          local get_lang = vim.treesitter.language.get_lang
-          return get_lang and get_lang(ft) or ft
-        end,
-      }
-    end
+    -- -- v0.9 had a "configs" module (plural) which is now gone.
+    -- package.preload["nvim-treesitter.configs"] = function()
+    --   return {
+    -- is_enabled = function(module_name, _)
+    --       return module_name == "highlight"
+    --     end,
+    --     -- Add other commonly used v0.9 functions if necessary
+    --     get_module = function(_)
+    --       return { enable = true }
+    --     end,
+    --     ft_to_lang = function(ft)
+    --       local get_lang = vim.treesitter.language.get_lang
+    --       return get_lang and get_lang(ft) or ft
+    --     end,
+    --   }
+    -- end
   end,
 
   config = function()
-    -- Backward compatibility shim for telescope.nvim and other plugins
-    local ok, parsers = pcall(require, "nvim-treesitter.parsers")
-    if ok then
-      parsers.ft_to_lang = function(ft)
-        return vim.treesitter.language.get_lang(ft) or ft
-      end
-      parsers.is_enabled = function() return true end
-      parsers.get_parser = vim.treesitter.get_parser
-    end
+    -- -- Backward compatibility shim for telescope.nvim and other plugins
+    -- local ok, parsers = pcall(require, "nvim-treesitter.parsers")
+    -- if ok then
+    --   parsers.ft_to_lang = function(ft)
+    --     return vim.treesitter.language.get_lang(ft) or ft
+    --   end
+    --   parsers.is_enabled = function() return true end
+    --   parsers.get_parser = vim.treesitter.get_parser
+    -- end
 
     local ensure_installed = {
       "c",
